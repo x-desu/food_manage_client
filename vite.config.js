@@ -7,4 +7,12 @@ export default defineConfig({
   plugins: [react(),
     tailwindcss(),
   ],
+  optimizeDeps: {
+    include: ['imagekitio-react']
+  },
+  resolve: {
+    alias: {
+      'imagekitio-react': '/node_modules/imagekitio-react'
+    }
+  }
 })
