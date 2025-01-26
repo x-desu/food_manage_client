@@ -7,9 +7,4 @@ export default defineConfig({
   plugins: [react(),
     tailwindcss(),
   ],
-  build: {
-    rollupOptions: {
-      external: ['imagekitio-react'], // Add this line
-    },
-  },
 })
