@@ -1,6 +1,6 @@
 import { useGetAllOrdersAdminQuery, useUpdateOrderStatusMutation } from '../../services/createApi';
 import { useAuth } from '../../context/userContext';
-import { format } from 'date-fns';
+import { format } from 'timeago.js';
 import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { useSearchParams } from 'react-router';
@@ -59,7 +59,7 @@ const AdminOrdersPage = () => {
                             Order ID: <span className="text-gray-500">#{order._id}</span>
                         </div>
                         <div>
-                            <h3 className='text-xs '>Placed At: {format(new Date(order.createdAt),'PPp')}</h3>
+                            <h3 className='text-xs '>Placed At: {format(order.createdAt)}</h3>
                         </div>
                         </div>
 

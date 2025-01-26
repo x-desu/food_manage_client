@@ -1,7 +1,7 @@
 import { useGetOrderOfUserQuery } from "../../services/createApi"
 import toast from "react-hot-toast";
 import { IKImage } from 'imagekitio-react';
-import { format } from 'date-fns';
+import { format } from 'timeago.js';
 
 const OrderHistory = () => {
     const { data: orders, isLoading, error } = useGetOrderOfUserQuery(undefined, {
@@ -56,7 +56,7 @@ const OrderHistory = () => {
                                     Order ID: <span className="font-medium">{order._id}</span>
                                 </p>
                                 <p className="text-sm text-gray-600">
-                                    Placed: {format(new Date(order.createdAt), 'PPp')}
+                                    Placed: {format(order.createdAt)}
                                 </p>
                             </div>
                             <div className="text-right">
