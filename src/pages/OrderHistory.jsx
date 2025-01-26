@@ -1,6 +1,6 @@
 import { useGetOrderOfUserQuery } from "../../services/createApi"
 import toast from "react-hot-toast";
-import { IKImage } from 'imagekitio-react';
+import  IKImage  from 'imagekitio-react';
 import { format } from 'date-fns';
 
 const OrderHistory = () => {
