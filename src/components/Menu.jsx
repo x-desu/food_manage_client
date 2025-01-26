@@ -7,6 +7,7 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import { useEffect, useState } from "react";
 import { Search, ChevronDown } from "lucide-react";
 import { useDebounce } from 'use-debounce';
+import { useAuth } from "../../context/userContext";
 
 const Menu = () => {
     const [page, setPage] = useState(1); 

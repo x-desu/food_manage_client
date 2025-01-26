@@ -17,7 +17,7 @@ const Homepage = () => {
     <div className="min-h-screen mt-4">
       {/* Hero Section */}
       <Hero/>  
-
+    
       <Menu/>
     </div>
   );
