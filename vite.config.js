@@ -12,10 +12,4 @@ export default defineConfig({
       external: ['imagekitio-react'], // Add this line
     },
   },
-  resolve: {
-    alias: {
-      'date-fns': 'date-fns/esm/index.js', // Add this line
-    },
-  },
- 
 })
