@@ -62,7 +62,7 @@ const Success = () => {
     }, [dispatch]);
 
     return (
-        <div className="min-h-screen bg-white py-12 px-4" ref={containerRef}>
+        <div className="min-h-screen dark:bg-[#121212] bg-white py-12 px-4" ref={containerRef}>
             <div className="max-w-7xl mx-auto ">
                 {/* Success Message Section */}
                 <div ref={messageRef} className="text-center mb-12">

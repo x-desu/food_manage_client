@@ -3,18 +3,18 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router';
 import { useAuth } from '../../context/userContext';
 import { IKImage } from 'imagekitio-react';
-import { Plus } from 'lucide-react';
+import { LogOutIcon, Plus, Settings, SettingsIcon } from 'lucide-react';
 import { useSelector } from 'react-redux';
 import toast from 'react-hot-toast';
 
 import Cart from './Cart';
+import ThemeToggle from './ThemeToggle';
 
 const Navbar = () => {
   const {user,isAuthenticated,logout} = useAuth()
   const navigate = useNavigate()
 
   const [open,setOpen] = useState(false)
-console.log(user)
 
   const handleLogout = async() => {
     const result = await logout(); 
@@ -30,7 +30,8 @@ console.log(user)
   const itemCount = cartItems.reduce((total, item) => total + item.quantity, 0);
 
   return (
-    <header className="sticky top-0  backdrop-blur-md bg-white/60 shadow-xs z-20">
+    <header className="sticky top-0 backdrop-blur-md bg-gradient-to-r from-white/60 via-gray-50/50 to-white/60 dark:from-[#121212]/80 dark:via-gray-900/60 dark:to-[#121212]/80 shadow-md z-20">
+
     <nav className="flex justify-between items-center py-2 border-b border-gray-200/20 px-4 ">
       <div className='flex gap-2'>
         <Link to={"/"} className='w-24 h-14'>
@@ -38,16 +39,20 @@ console.log(user)
         src="https://lottie.host/63ece32b-08e4-4c67-8fe1-09e51c0bfc51/bTYBtnmBVw.lottie"
         loop
         autoplay
-        className='w-24 h-14  -mt-4 -ml-8'
+        className="w-24 h-14 -mt-4 -ml-8 transition-transform duration-200 hover:scale-105"
         />
         </Link>
         </div>
-    <span className='font-semibold'>Order: Food</span>
+        <span className="text-lg font-medium text-gray-600 dark:text-gray-300 tracking-wide">
+  Order Your <span className="text-orange-500 font-semibold">Food</span>
+</span>
+
+    <ThemeToggle/>
        <div className="flex items-center gap-4">
        {isAuthenticated && user.role === 'admin' && (
          <Link 
            to="/createmenu" 
-           className="flex items-center gap-2 p-2 bg-orange-500 text-white rounded-full hover:bg-orange-600 transition-colors"
+           className="flex items-center gap-2 p-2 bg-orange-500 text-white rounded-full hover:bg-orange-600 hover:scale-105 focus:ring-2 focus:ring-orange-300 transition-all"
          >
            <Plus size={20} />
          </Link>
@@ -55,7 +60,7 @@ console.log(user)
        <Cart itemCount={itemCount} />
        {isAuthenticated? 
        <button onClick={()=>setOpen(prev=>!prev)} className=' flex gap-1 text-xl items-center justify-center '>
-       {user?.avatar?<span className='h-10 w-10 rounded-full shadow-md '>
+       {user?.avatar?<span className="h-10 w-10 rounded-full shadow-md border-2 border-gray-200 dark:border-gray-700 overflow-hidden">
         <IKImage
                     urlEndpoint={import.meta.env.VITE_IK_URL_ENDPOINT}
                     path={user?.avatar}
@@ -82,17 +87,21 @@ console.log(user)
         </button>
        :<Link to={'/login'}>
        <button
-       className=" px-4 py-2 bg-red-500 rounded-xl hover:text-white/80 font-semibold shadow-md   text-white active:scale-105 duration-75" >
+       className="px-4 py-2 bg-red-500 rounded-xl hover:bg-red-600 focus:ring-2 focus:ring-red-300 font-semibold shadow-md text-white transition-all" >
        Login
      </button>
          </Link>
      }
         {open &&
           <div className='flex flex-col dropdown'>
-          <ul className='flex flex-col gap-4'>
-            <Link onClick={()=>setOpen(prev=>!prev)} to={'/dashboard'}>Settings</Link>
-            <li onClick={handleLogout} className='cursor-pointer hover:text-red-500/80 '>Logout</li>
-          </ul>
+          <ul className="flex flex-col gap-4">
+  <Link onClick={() => setOpen(prev => !prev)} to="/dashboard" className="flex items-center gap-2 hover:text-blue-500">
+    <Settings size={16} /> Settings
+  </Link>
+  <li onClick={handleLogout} className="cursor-pointer flex items-center gap-2 hover:text-red-500">
+    <LogOutIcon size={16} /> Logout
+  </li>
+</ul>
         </div>
         }
     </div>

@@ -43,14 +43,14 @@ const MenuItem = ({item}) => {
                 className="w-full h-full object-cover"
               />
               <div className="absolute top-2 right-2">
-                <span className="bg-white/90 px-2 py-1 rounded-full text-xs sm:text-sm sm:font-medium text-gray-700">
+                <span className="bg-white/90  px-2 py-1 rounded-full text-xs sm:text-sm sm:font-medium text-gray-700">
                   {item.category}
                 </span>
               </div>
             </Link>
 
             {/* Content */}
-            <div className="p-4">
+            <div className="p-4 ">
               <div className="flex justify-between items-start mb-2 min-h-16">
                   <Link to={`/menu/${item._id}`}>
                 <h3 className="text-base sm:text-lg font-semibold text-gray-800 max-w-24 sm:max-w-fit flex-wrap ">
@@ -94,7 +94,7 @@ const MenuItem = ({item}) => {
     }
 
   return (
-        <div>
+        <div className="dark:bg-[#282828] ">
               {/* Image */}
               <div  className="relative  w-full">
                 <IKImage
@@ -110,17 +110,17 @@ const MenuItem = ({item}) => {
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute top-2 right-2">
-                  <span className="bg-white/90 px-2 py-1 rounded-full text-xs sm:text-sm sm:font-medium text-gray-700">
+                  <span className="bg-white/90 px-2 py-1 rounded-full text-xs sm:text-sm sm:font-medium  text-gray-700">
                     {item.category}
                   </span>
                 </div>
               </div>
 
               {/* Content */}
-              <div className="p-4">
+              <div className="p-4 ">
                 <div className="flex justify-between items-start mb-2 min-h-16">
                     <div >
-                  <h3 className="text-base sm:text-lg font-semibold text-gray-800 max-w-24 sm:max-w-fit flex-wrap ">
+                  <h3 className="text-base sm:text-lg font-semibold dark:text-slate-100 text-gray-800 max-w-24 sm:max-w-fit flex-wrap ">
                     {item.name}
                   </h3>
                     </div>

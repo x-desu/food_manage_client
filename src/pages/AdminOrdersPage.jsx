@@ -11,10 +11,7 @@ const AdminOrdersPage = () => {
     const [sort,setSort] = useState('date_desc')
     const { data: orders, isLoading, isError } = useGetAllOrdersAdminQuery(sort);
     const [updateOrderStatus,{isSuccess,isLoading:updateLoad}] = useUpdateOrderStatusMutation()
-   console.log(user,orders)
-    useEffect(()=>{
-        console.log('admin admin')
-    },[])
+
     // Update order status
     const handleUpdateStatus = async (orderId, status) => {
         try {
@@ -39,7 +36,7 @@ const AdminOrdersPage = () => {
             <div className='flex justify-between'>
             <h1 className="text-2xl font-bold mb-4">Admin Panel</h1>
             <select value={sort} onChange={handleChange}
-            className="border border-gray-300 rounded-lg px-2 py-2 text-xs text-gray-700 shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-orange-400"
+            className="border mb-2 dark:bg-neutral-900 dark:text-slate-100 border-gray-300 rounded-lg px-2 py-2 text-xs text-gray-700 shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-orange-400"
             >
             <option value="">Sort by</option>
             <option value="date_asc">Date: Oldest First</option>
@@ -59,7 +56,7 @@ const AdminOrdersPage = () => {
                             Order ID: <span className="text-gray-500">#{order._id}</span>
                         </div>
                         <div>
-                            <h3 className='text-xs '>Placed At: {format(order.createdAt)}</h3>
+                            <h3 className='text-xs dark:text-neutral-900 '>Placed At: {format(order.createdAt)}</h3>
                         </div>
                         </div>
 
@@ -74,7 +71,7 @@ const AdminOrdersPage = () => {
                             <div className="text-sm text-gray-900">
                                 Total: <span className="font-medium">₹{order.totalAmount}</span>
                             </div>
-                            <div className="text-sm">
+                            <div className="text-sm dark:text-neutral-900">
                                 Status:{" "}
                                 <span
                                     className={`px-2 py-1 rounded-full text-xs font-semibold ${
@@ -103,7 +100,7 @@ const AdminOrdersPage = () => {
                             </button>
                             <button
                                 onClick={() => handleUpdateStatus(order._id, 'Pending')}
-                                className={`px-3 py-1.5 text-sm font-medium rounded-md transition-colors cursor-pointer ${
+                                className={`px-3 py-1.5 text-sm  font-medium rounded-md transition-colors cursor-pointer ${
                                     order.status === 'Pending'
                                         ? 'bg-yellow-500 text-white cursor-not-allowed'
                                         : 'bg-yellow-500 hover:bg-yellow-600 text-white'

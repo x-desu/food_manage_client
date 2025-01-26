@@ -7,7 +7,9 @@ export const UserContext = createContext({
     setUser: () => {},
     loading: true,
     logout: () => {},
-    login: () => {}
+    login: () => {},
+    theme:'light',
+    setTheme:()=>{}
 });
 
 export const useAuth = () => {

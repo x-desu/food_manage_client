@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import { Search, ChevronDown } from "lucide-react";
 import { useDebounce } from 'use-debounce';
 import { useAuth } from "../../context/userContext";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
 const Menu = () => {
     const [page, setPage] = useState(1); 
@@ -46,7 +47,6 @@ const Menu = () => {
 
     const hasMore = data ? data.data.length < data.total : false;
  
-    console.log(data,filterData)
 
     const fetchMoreData = () => {
     if (!isFetching && hasMore) {
@@ -115,12 +115,12 @@ const categories = ['Appetizers', 'Main', 'Desserts', 'Beverages','Snacks'];
     </div>
     </div>
     <div className="flex items-center justify-between mt-4">
-        <h1 className="text-3xl font-bold text-gray-800 ">Our Menu</h1>
+        <h1 className="text-3xl font-bold text-gray-800 dark:text-slate-100">Our Menu</h1>
         <div className="relative">
                     <select
                     value={sortOption}
                     onChange={handleSortChange}
-                    className="appearance-none bg-white border-2 border-orange-400/60 rounded-2xl px-4 py-2 pr-8 text-gray-800 font-semibold focus:outline-none focus:border-orange-500"
+                    className="appearance-none dark:bg-neutral-900 dark:text-slate-100 bg-white border-2 border-orange-400/60 rounded-2xl px-4 py-2 pr-8 text-gray-800 font-semibold focus:outline-none focus:border-orange-500"
                     >
                         <option  value="name-asc">Name (A-Z)</option>
                         <option value="name-desc">Name (Z-A)</option>
@@ -139,7 +139,16 @@ const categories = ['Appetizers', 'Main', 'Desserts', 'Beverages','Snacks'];
                 next={fetchMoreData}
                 hasMore={hasMore}
                 loader={<div>Loading more...</div>}
-                endMessage={<div>No more items to load.</div>}
+                endMessage={<div className="flex flex-col items-center justify-center">
+                    <DotLottieReact
+                src="https://lottie.host/8c0e4a3c-5bcf-4ce1-b078-8ece8738d9b8/LxAVmHFaD1.lottie"
+                loop
+                autoplay
+                className="w-64"
+                  speed={0.8} // Standard speed, feel free to adjust
+                />
+                No more data to load
+                </div>}
             >
         <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 py-4">
           {filterData.map((item) => (

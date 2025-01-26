@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500&display=swap');
 @import "tailwindcss";
-
+@variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 .dropdown{
     position: absolute;
@@ -90,3 +90,19 @@
   .scroll-container::-webkit-scrollbar {
     display: none; /* Safari and Chrome */
   }
+
+  .dark{
+    background-color: #121212;
+    color: #f1f1f1;
+  }
+  .dark .dropdown {
+    background-color: #2d2d2d; /* Dark background for dropdown */
+    border: 1px solid #555;   /* Darker border */
+    color: #f1f1f1;          /* Light text */
+}
+
+.dark .dropdown::before {
+    background-color: #2d2d2d;
+    border-left: 1px solid #555;
+    border-top: 1px solid #555;
+}

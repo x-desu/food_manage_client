@@ -40,7 +40,7 @@ const Dashboard = () => {
       setNewName(user?.name || '');
     } 
   };
-  console.log(user)
+
 
   const handleImageUpload = async () => {
     if (!img?.filePath) return;
@@ -69,7 +69,7 @@ const Dashboard = () => {
         <div className='flex justify-between items-center px-4'>
           <h1 className="text-2xl  text-gray-600 profile">My Profile</h1>
         </div>
-        <div className="bg-white rounded-lg shadow p-6 relative">
+        <div className="bg-white dark:bg-neutral-900 rounded-lg shadow p-6 relative">
           {/* Annotation */}
           <div className="absolute -top-6 right-20 pointer-events-none">
             <div className="relative">
@@ -123,7 +123,7 @@ const Dashboard = () => {
                 </div>
                 
                 <Image setData={setImg}>
-                  <button className="absolute bottom-0 right-0 bg-white p-2 rounded-full shadow-lg cursor-pointer">
+                  <button className="absolute bottom-0 right-0  bg-white p-2 rounded-full shadow-lg cursor-pointer">
                     <HiCamera className="w-5 h-5 text-gray-600" />
                   </button>
                 </Image>
@@ -187,7 +187,7 @@ const Dashboard = () => {
                 <label className="block text-sm font-medium text-gray-700 mb-1">
                   Email
                 </label>
-                <div className="px-3 py-2 bg-gray-50 rounded-md text-gray-500">
+                <div className="px-3 py-2 dark:bg-neutral-900 bg-gray-50 rounded-md text-gray-500">
                   {user?.email}
                 </div>
               </div>
@@ -195,7 +195,7 @@ const Dashboard = () => {
               {/* Account Actions */}
               <div className="pt-4 border-t border-gray-200 flex justify-between flex-col sm:flex-row gap-4">
                 <div>
-                <h3 className="text-lg font-medium text-gray-900 mb-4">Account Settings</h3>
+                <h3 className="text-lg font-medium text-gray-900 dark:text-slate-100 mb-4">Account Settings</h3>
                 <div className="space-y-3">
                   <button
                     onClick={() => {/* Implement password change logic */}}
@@ -207,7 +207,7 @@ const Dashboard = () => {
                 </div>
 
                   {user.role === 'admin' && <div>
-                    <h3 className="text-lg font-medium text-red-400 mb-4">Customer Order Details</h3>
+                    <h3 className="text-lg font-medium text-red-400 mb-4 ">Customer Order Details</h3>
                     <Link to={'/adminpage'}
                     className="w-full sm:w-auto px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-700 transition-colors flex items-center justify-center"
                     >
@@ -215,7 +215,7 @@ const Dashboard = () => {
                     </Link>
                   </div>}
                     <div>
-                      <h3 className="text-lg font-medium text-gray-900 mb-4">Order Details</h3>
+                      <h3 className="text-lg font-medium text-gray-900 mb-4 dark:text-slate-100">Order Details</h3>
                       <Link to={'/orderhistory'}
                       className="w-full sm:w-auto px-4 py-2 bg-gray-800 text-white rounded-md hover:bg-gray-900 transition-colors flex items-center justify-center"
                       >

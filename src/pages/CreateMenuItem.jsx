@@ -105,7 +105,7 @@ useEffect(() => {
               </div>
             )}
             <Image setData={setImg}>
-              <button type="button" className="px-4 py-2 bg-gray-100 rounded-md hover:bg-gray-200 transition-colors">
+              <button type="button" className="px-4 py-2 dark:bg-neutral-900 bg-gray-100 rounded-md hover:bg-orange-400 transition-colors">
                 Upload Image
               </button>
             </Image>
@@ -154,7 +154,7 @@ useEffect(() => {
             name="category"
             value={formData.category}
             onChange={handleChange}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-orange-500"
+            className="w-full dark:bg-neutral-900 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-orange-500"
             required
           >
             <option value="">Select a category</option>

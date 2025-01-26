@@ -15,7 +15,7 @@ const CartPage = () => {
     if (cartItems.length === 0) {
         return (
             <div className="min-h-[60vh] flex flex-col items-center justify-center gap-4">
-                <h2 className="text-2xl font-semibold text-gray-600">Your cart is empty</h2>
+                <h2 className="text-2xl font-semibold  text-gray-600">Your cart is empty</h2>
                 <p className="text-gray-500">Add some delicious items to your cart</p>
                 <Link 
                     to="/" 
@@ -36,9 +36,9 @@ const CartPage = () => {
             })),
             totalAmount:total
         }
-        console.log(order)
+       
        const res = await createOrder(order).unwrap()
-       console.log(res)
+     
        toast.success(res?.message||"success")
        navigate('/success')
       } catch (error) {
@@ -49,9 +49,9 @@ const CartPage = () => {
 
 
     return (
-        <div className="max-w-4xl mx-auto p-6">
+        <div className="max-w-4xl mx-auto p-6 ">
             <div className="flex justify-between items-center mb-8">
-                <h1 className="text-3xl font-bold text-gray-800">Your Cart</h1>
+                <h1 className="text-3xl font-bold dark:text-slate-100 text-gray-800">Your Cart</h1>
                 <button 
                     onClick={() => dispatch(clearCart())}
                     className="flex items-center gap-2 px-4 py-2 text-red-500 hover:bg-red-50 rounded-lg transition-colors"
@@ -61,12 +61,12 @@ const CartPage = () => {
                 </button>
             </div>
 
-            <div className="bg-white rounded-xl shadow-md overflow-hidden">
+            <div className="bg-white  dark:bg-neutral-900 rounded-xl shadow-md overflow-hidden">
                 <div className="divide-y divide-gray-200">
                     {cartItems.map((item) => (
-                        <div key={item.id} className="p-4 flex items-center justify-between">
+                        <div key={item.id} className="p-4  flex items-center justify-between">
                             <div className="flex-1">
-                                <h3 className="text-lg font-semibold text-gray-800">{item.name}</h3>
+                                <h3 className="text-lg font-semibold dark:text-slate-100 text-gray-800">{item.name}</h3>
                                 <p className="text-orange-600 font-medium">₹{item.price}</p>
                             </div>
 
@@ -100,10 +100,10 @@ const CartPage = () => {
                     ))}
                 </div>
 
-                <div className="bg-gray-50 p-6">
+                <div className="bg-gray-50 dark:bg-neutral-900  p-6">
                     <div className="flex justify-between items-center mb-4">
-                        <span className="text-gray-600">Subtotal</span>
-                        <span className="text-lg font-semibold">₹{total}.00</span>
+                        <span className="text-gray-600 dark:text-slate-100">Subtotal</span>
+                        <span className="text-lg dark:text-neutral-900 dark:text-slate-100 font-semibold">₹{total}.00</span>
                     </div>
                     <button onClick={handleCheckout}
                         className="w-full py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors cursor-pointer"

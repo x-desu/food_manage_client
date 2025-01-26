@@ -7,6 +7,22 @@ export  const UserContextProvider = ({children}) => {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
+    const savedTheme = localStorage.getItem("theme") || "light";
+    const [theme, setTheme] = useState(savedTheme);
+
+    useEffect(() => {
+    
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark");
+          document.documentElement.setAttribute('data-theme', 'dark');
+        } else {
+          document.documentElement.classList.remove("dark");
+          document.documentElement.removeAttribute("data-theme");
+        }
+  
+        localStorage.setItem("theme", theme);
+      }, [theme]);
+    
 
     const checkAuth = async() => {
         try {
@@ -83,7 +99,9 @@ export  const UserContextProvider = ({children}) => {
             loading,
             logout,
             login,
-            checkAuth
+            checkAuth,
+            theme,
+            setTheme
         }}>
             {children}
         </UserContext.Provider>
