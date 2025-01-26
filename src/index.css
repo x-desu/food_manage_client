@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500&display=swap');
+@import "tailwindcss";
+
+
+.dropdown{
+    position: absolute;
+    top: 4rem;
+    right: 0rem;
+    width: 100px;
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid gray;
+    background-color: white;
+    z-index: 100;
+}
+
+.dropdown::before{
+    content: "";
+    position:absolute;
+    top: -0.7rem;
+    right: 1.2rem;
+    width: 20px;
+    height: 20px;
+    transform: rotate(45deg);
+    background-color: white;
+    border-left: 1px solid gray;
+    border-top: 1px solid gray;
+}
+
+@keyframes draw {
+  from {
+    stroke-dashoffset: 100;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-draw {
+  animation: draw 1s ease-in-out forwards;
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-15deg); }
+  75% { transform: rotate(15deg); }
+}
+
+.animate-wiggle {
+  animation: wiggle 0.5s ease-in-out;
+}
+
+.font-caveat ,.profile {
+  font-family: 'Caveat', cursive;
+}
+
+.image-style {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    object-fit: cover;
+  }
+
+
+  @keyframes wiggle {
+
+    0%, 100% { transform: rotate(0deg); }
+  
+    25% { transform: rotate(-15deg); }
+  
+    75% { transform: rotate(15deg); }
+  
+  }
+  
+  
+  
+  .animate-wiggle {
+  
+    animation: wiggle 0.5s ease-in-out;
+  
+  }
+
+  .scroll-container {
+    overflow-x: auto;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+  
+  .scroll-container::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+  }
