@@ -1,5 +1,5 @@
 import { Link } from "react-router"
-import  IKImage  from 'imagekitio-react';
+import { IKImage } from 'imagekitio-react';
 import { useDispatch, useSelector } from "react-redux";
 import { addItem, decrementItem, incrementItem } from "../../cart/cartSlice";
 import PropTypes from 'prop-types';

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import  IKImage  from 'imagekitio-react';
+import { IKImage } from 'imagekitio-react';
 import Image from '../components/Image';
 import { useAddMenuItemMutation } from '../../services/createApi';
 import toast from 'react-hot-toast';

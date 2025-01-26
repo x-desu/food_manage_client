@@ -1,6 +1,6 @@
 import { useParams } from "react-router";
 import { useGetMenuItemByidQuery, useDeleteMenuItemMutation, useUpdateMenuItemMutation } from "../../services/createApi";
-import  IKImage  from 'imagekitio-react';
+import { IKImage } from 'imagekitio-react';
 import { useState, useEffect } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router";

@@ -5,7 +5,7 @@ import axios from 'axios';
 import toast from 'react-hot-toast';
 import Image from '../components/Image';
 import { Save } from 'lucide-react';
-import  IKImage  from 'imagekitio-react';
+import { IKImage } from 'imagekitio-react';
 import { Link } from 'react-router';
 
 const Dashboard = () => {
