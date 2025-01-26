@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { UserContext } from "./userContext";
 import PropTypes from 'prop-types';
 import toast from 'react-hot-toast';
-export const UserContextProvider = ({children}) => {
+export  const UserContextProvider = ({children}) => {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);

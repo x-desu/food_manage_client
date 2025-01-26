@@ -9,7 +9,7 @@ import RootLayout from './layouts/RootLayout.jsx';
 import Homepage from './pages/Homepage.jsx';
 import Login from './pages/Login.jsx';
 import Register from './pages/Register.jsx';
-import { UserContextProvider } from '../context/userContextProvider.jsx';
+import { UserContextProvider} from '../context/UserContextProvider.jsx'
 import Dashboard from './pages/Dashboard.jsx';
 import ProtectedRoutes from './components/ProtectedRoutes.jsx';
 import UnprotectedRoutes from './components/UnprotectedRoutes.jsx';
