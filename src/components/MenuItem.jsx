@@ -10,6 +10,7 @@ const MenuItem = ({item}) => {
     const cart = useSelector((state)=>state.cart.items)
     const dispatch = useDispatch()
     const {user} = useAuth()
+    
     const handleAddToCart = () => {
         dispatch(addItem({id:item._id,name:item.name,price:item.price}))
     }
@@ -25,9 +26,9 @@ const MenuItem = ({item}) => {
     const cartItem = cart.find(cartItem=>cartItem.id === item._id)
     const quantity = cartItem?.quantity || 0
     
-    if(user === 'admin'){
+    if(user.role === 'admin'){
         return(
-            <div>
+            <div className="dark:bg-[#282828]">
             {/* Image */}
             <Link to={`/menu/${item._id}`} className="relative  w-full">
               <IKImage
@@ -53,7 +54,7 @@ const MenuItem = ({item}) => {
             <div className="p-4 ">
               <div className="flex justify-between items-start mb-2 min-h-16">
                   <Link to={`/menu/${item._id}`}>
-                <h3 className="text-base sm:text-lg font-semibold text-gray-800 max-w-24 sm:max-w-fit flex-wrap ">
+                <h3 className="text-base sm:text-lg dark:text-slate-100 font-semibold text-gray-800 max-w-24 sm:max-w-fit flex-wrap ">
                   {item.name}
                 </h3>
                   </Link>

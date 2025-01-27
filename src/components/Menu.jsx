@@ -135,7 +135,7 @@ const categories = ['Appetizers', 'Main', 'Desserts', 'Beverages','Snacks'];
     </div>
             <InfiniteScroll
                 dataLength={data?.data.length||0}
-                scrollThreshold={0.95}
+                scrollThreshold={0.65}
                 next={fetchMoreData}
                 hasMore={hasMore}
                 loader={<div>Loading more...</div>}

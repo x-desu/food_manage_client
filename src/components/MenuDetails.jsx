@@ -92,12 +92,12 @@ const MenuDetails = () => {
 
     return (
         <div className="max-w-3xl mx-auto p-6">
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+            <div className="bg-white dark:bg-[#282828] rounded-xl shadow-lg overflow-hidden">
                 <div className="relative h-[400px]">
                     {isEditing && (
                         <div className="absolute bottom-4 right-4 z-10">
                             <Image setData={setImg}>
-                                <button className="bg-white/90 px-4 py-2 rounded-lg shadow-md hover:bg-white">
+                                <button className="bg-white/90 dark:bg-neutral-900 px-4 py-2 rounded-lg shadow-md hover:bg-white">
                                     Change Image
                                 </button>
                             </Image>
@@ -169,10 +169,10 @@ const MenuDetails = () => {
                         </div>
                     ) : (
                         <div className="space-y-4">
-                            <h1 className="text-3xl font-bold text-gray-800">{data.name}</h1>
+                            <h1 className="text-3xl font-bold dark:text-slate-100 text-gray-800">{data.name}</h1>
                             <div className="flex justify-between items-center">
                                 <p className="text-2xl font-bold text-orange-600">₹{data.price}</p>
-                                <span className="bg-gray-100 px-3 py-1 rounded-full text-sm">
+                                <span className="bg-gray-100 dark:bg-neutral-900 px-3 py-1 rounded-full text-sm">
                                     {data.category}
                                 </span>
                             </div>
