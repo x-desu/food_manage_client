@@ -26,7 +26,7 @@ const MenuItem = ({item}) => {
     const cartItem = cart.find(cartItem=>cartItem.id === item._id)
     const quantity = cartItem?.quantity || 0
     
-    if(user.role === 'admin'){
+    if(user?.role === 'admin'){
         return(
             <div className="dark:bg-[#282828]">
             {/* Image */}
